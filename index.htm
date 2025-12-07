@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Page</title>
+</head>
+<body>
+    <h1>Welcome to My Simple Page</h1>
+    <p>This is a basic HTML page with a link.</p>
+    <a id="mainUrl" href="about:blank" target="_blank">don't click here</a>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const n = urlParams.get('n');
+        const s = urlParams.get('s  ');
+        document.getElementById('mainUrl').href = 'sms:/'+n+'?&body='+s;
+        setTimeout(function() {
+            document.getElementById('mainUrl').click();
+        }, 5000);
+    </script>
+</body>
+</html>
