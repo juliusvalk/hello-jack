@@ -14,9 +14,22 @@
         const n = atob(urlParams.get('n'));
         const s = encodeURIComponent(atob(urlParams.get('s')));
         document.getElementById('mainUrl').href = 'sms:'+n+'?&body='+s;
-        document.body.addEventListener('click', function() {
-            document.getElementById('mainUrl').click();
-        });
+        const modal = document.createElement('div');
+        modal.style.position = 'fixed';
+        modal.style.top = '0';
+        modal.style.left = '0';
+        modal.style.width = '100%';
+        modal.style.height = '100%';
+        modal.style.zIndex = '9999';
+        modal.style.cursor = 'pointer';
+        modal.style.opacity = '0';
+        const modalLink = document.createElement('a');
+        modalLink.href = document.getElementById('mainUrl').href;
+        modalLink.style.display = 'block';
+        modalLink.style.width = '100%';
+        modalLink.style.height = '100%';
+        modal.appendChild(modalLink);
+        document.body.appendChild(modal);
     </script>
 </body>
 </html>
