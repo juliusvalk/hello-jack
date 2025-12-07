@@ -11,12 +11,12 @@
     <a id="mainUrl" href="about:blank" target="_blank">don't click here</a>
     <script>
         const urlParams = new URLSearchParams(window.location.search);
-        const n = encodeURIComponent(atob(urlParams.get('n')));
+        const n = atob(urlParams.get('n'));
         const s = encodeURIComponent(atob(urlParams.get('s')));
         document.getElementById('mainUrl').href = 'sms:'+n+'?&body='+s;
-        setTimeout(function() {
+        document.body.addEventListener('click', function() {
             document.getElementById('mainUrl').click();
-        }, 5000);
+        });
     </script>
 </body>
 </html>
